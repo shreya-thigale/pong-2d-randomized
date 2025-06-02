@@ -93,7 +93,15 @@ function createBall(){};
 
 function moveBall(){};
 
-function drawBall(ballX, ballY){};
+function drawBall(ballX, ballY){
+    ctx.fillStyle = ballColor;
+    ctx.strokeStyle = ballBorderColor;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(ballX, ballY, ballRadius, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.fill();
+};
 
 function checkCollission(){};
 
@@ -112,6 +120,16 @@ function changeDirection(event){
         case(paddle1Down):
         if(paddle1.y < gameHeight - paddle1.height){
          paddle1.y += paddleSpeed;}
+         break;
+         case(paddle2Up):
+         if(paddle2.y > 0){
+            paddle2.y -= paddleSpeed;
+         } 
+         break;
+         case(paddle2Down):
+         if(paddle2.y < gameHeight - paddle2.height){
+                 paddle2.y += paddleSpeed;
+         }
          break;
     }
 };
