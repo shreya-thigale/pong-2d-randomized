@@ -54,7 +54,12 @@ function nextTick(){
         nextTick();
     }, 10)
 };
-function clearBoard(){};
+
+function clearBoard(){
+    ctx.fillStyle = boardBackground;
+    ctx.fillRect(0, 0, gameWidth, gameHeight);
+
+};
 
 function drawPaddles(){
     ctx.strokeStyle = paddleBorder;
@@ -85,9 +90,32 @@ function drawPaddles(){
 };
 
 function createBall(){};
+
 function moveBall(){};
+
 function drawBall(ballX, ballY){};
+
 function checkCollission(){};
-function changeDirection(){};
+
+function changeDirection(event){
+    const keyPressed = event.keyCode;
+    const paddle1Up = 87;
+    const paddle1Down = 83;
+    const paddle2Up = 38;
+    const paddle2Down = 40;
+
+    switch(keyPressed) {
+        case(paddle1Up):
+        if(paddle1.y > 0){
+         paddle1.y -= paddleSpeed;}
+         break;
+        case(paddle1Down):
+        if(paddle1.y < gameHeight - paddle1.height){
+         paddle1.y += paddleSpeed;}
+         break;
+    }
+};
+
 function updateScore(){};
+
 function resetGame(){};
